@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Title>Acer-Store </title>
+      <link rel="icon" href="image/ACER.png">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <style>
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fef8f8;
+  background: none;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 5vw;
+  padding: 0;
+  list-style-type: none;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;  
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {      
+  width: 100%;
+  height: auto;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}       
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #f0821b;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #b05985;  
+}
+
+.card__status {
+  font-size: .8em;
+  color: #000000;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #080808;
+  font-family: "MockFlowFont";   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 0;
+  overflow: hidden;
+}  
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}  
+.page-wrapper
+{
+      position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 11111;
+    top: 35px;
+}
+
+.footer-bottom {
+    padding: 15px 0;
+    border-top: 2px solid #07dc8e;
+    background-color: #e4e4e4 !important;
+    color: #180404;
+    font-family: rubik;
+}
+#waterdrop {
+    height: 30px;
+}
+
+#waterdrop canvas {
+    bottom: -60px !important;
+    background-color: aqua;
+}
+
+.footer-site-info
+{
+  padding-top: 10px;
+  font-size: larger;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+*{padding: 0; margin: 0; box-sizing: border-box;}
+body{height: 900px;}
+header {
+	
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+}
+header .overlay{
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	color: #19d80f;
+	text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient( 135deg, #f2f3ed69 10%, #43a2476b 100%);
+	
+}
+
+h1 {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 80px;
+	margin-bottom: 30px;
+}
+
+h3, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+}
+  </style>
+  </head>  
+  <body>
+    <header>
+        <div class="overlay">
+             <h1>ACER</h1>
+            </div>
+    </header>
+    <video id="background-video" autoplay loop muted poster="image/123.mp4">
+    <source src="image/123.mp4" type="video/mp4">
+    </video>
+   <ul class="cards">
+    <li>
+      <a href="image/acer_1.jpg" class="card">
+        <img src="image/acer_1.jpg" class="card__image" alt="" />
+        <div class="card__overlay">
+          <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+            <img class="card__thumb" src="image/ACER2.png" alt="" />
+            <div class="card__header-text">
+              <h3 class="card__title">acer Aspire 3 Ryzen 3 Dual Core 3250U </h3>            
+              <span class="card__status"><B>₹26,490</B></span>
+            </div>
+          </div>
+          <p class="card__description">(8 GB/256 GB SSD/Windows 11 Home) A315-23 Laptop  (15.6 Inch, Charcoal Black, 1.9 Kg)</p>
+        </div>
+      </a>      
+    </li>
+    <li>
+      <a href="image/acer_2.jpg" class="card">
+        <img src="image/acer_2.jpg" class="card__image" alt="" />
+        <div class="card__overlay">        
+          <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+            <img class="card__thumb" src="image/ACER2.png" alt="" />
+            <div class="card__header-text">
+              <h3 class="card__title">acer Extensa Core i5 11th Gen</h3>
+              <span class="card__status"><B>₹40,490</B></span>
+            </div>
+          </div>
+          <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home) EX 215-54-583M Thin and Light Laptop  (15.6 Inch, Charcoal Black, 1.7 Kg)</p>
+        </div>
+      </a>
+    </li>
+   
+    <li>
+      <a href="image/acer_3.jpg" class="card">
+        <img src="image/acer_3.jpg" class="card__image" alt="" />
+        <div class="card__overlay">
+          <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+            <img class="card__thumb" src="image/ACER2.png" alt="" />
+            <div class="card__header-text">
+              <h3 class="card__title">acer Aspire Core i3 12th Gen</h3>
+              <span class="card__status"><B>₹42,490</B></span>
+            </div>          
+          </div>
+          <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home) A315-59 Notebook  (15.6 inch, Pure Silver, 1.7 Kg, With MS Office)</p>
+        </div>
+      </a>
+    </li>    
+    <li>
+        <a href="image/acer_4.jpg" class="card">
+          <img src="image/acer_4.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/ACER2.png" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">acer Aspire 7 Core i5 12th Gen</h3>
+                <span class="card__status"><B>₹57,490</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home/4 GB Graphics/NVIDIA GeForce GTX 1650) A715-51G, A715-51G-527C Gaming Laptop  (15.6 inch, Charcoal Black, 2.1 Kg)</p>
+          </div>
+        </a>
+      </li>    
+      <li>
+        <a href="image/acer_5.jpg" class="card">
+          <img src="image/acer_5.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/ACER2.png" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">acer Aspire Vero(Green PC ) Core i5 11th Gen</h3>
+                <span class="card__status"><B>₹49,012</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home) AV15-51 Thin and Light Laptop  (15.6 inch, Volcano Gray, 1.8 kg, With MS Office)</p>
+          </div>
+        </a>
+      </li>    
+      <li>
+        <a href="image/acer_6.jpg" class="card">
+          <img src="image/acer_6.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/ACER2.png" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">acer Nitro 5 Ryzen 5 Hexa Core 5600H </h3>
+                <span class="card__status"><B>₹63,490</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(16 GB/512 GB SSD/Windows 11 Home/4 GB Graphics/NVIDIA GeForce GTX 1650) AN515-45 Gaming Laptop  (15.6 Inch, Shale Black, 2.2 kg)</p>
+          </div>
+        </a>
+      </li>    
+      <li>
+        <a href="image/acer_7.jpg" class="card">
+          <img src="image/acer_7.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/ACER2.png" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">acer Aspire 5 Core i5 12th Gen </h3>
+                <span class="card__status"><B>₹57,490</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home) A515-57 Thin and Light Laptop  (15.6 Inch, Glacier Blue, 1.76 kg, With MS Office)</p>
+          </div>
+        </a>
+      </li>    
+      <li>
+        <a href="image/acer_8.jpg" class="card">
+          <img src="image/acer_8.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/ACER2.png" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">acer Gaming Core i5 11th Gen</h3>
+                <span class="card__status"><B>₹62,490</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(16 GB/512 GB SSD/Windows 11 Home/4 GB Graphics/NVIDIA GeForce GTX 1650) AN515-57 Gaming Laptop  (15.6 Inch, Shale Black)</p>
+          </div>
+        </a>
+      </li>    
+      <li>
+        <a href="image/acer_9.jpg" class="card">
+          <img src="image/acer_9.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/ACER2.png" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">acer Predator Helios 300 Core i9 11th Gen </h3>
+                <span class="card__status"><B>₹1,19,490</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(16 GB/1 TB SSD/Windows 11 Home/6 GB Graphics/NVIDIA GeForce RTX 3060) PH315-54/ ph315-54-909w Gaming Laptop  (15.6 Inch, Abyssal Black, 2.3 Kg)</p>
+          </div>
+        </a>
+      </li>    
+      <li>
+        <a href="mage/acer_10.jpg" class="card">
+          <img src="image/acer_10.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/ACER2.png" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">acer Swift 3 Ryzen 5 Hexa Core 5500U </h3>
+                <span class="card__status"><B>₹61,000</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(8 GB/512 GB SSD/Windows 10 Home) SF314-43 Thin and Light Laptop  (14 inch, Pure Silver, 1.2 kg, With MS Office)
+            </p>
+          </div>
+        </a>
+      </li>    
+      <li>
+        <a href="image/acer_11.png" class="card">
+          <img src="image/acer_11.png" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/ACER2.png" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">acer Swift 3 OLED Core i7 12th Gen </h3>
+                <span class="card__status"><B>₹1,15,499</B></span>
+              </div>          
+            </div>
+            <p class="card__description"> (16 GB/1 TB SSD/Windows 11 Home) SF314-71 Thin and Light Laptop  (14 Inch, Steel Gray, 1.4 Kg, With MS Office)</p>
+          </div>
+        </a>
+      </li>    
+      
+  </ul>
+  <!-- Footer-->
+  <div class="page-wrapper">
+    <div id="waterdrop"></div>
+    <footer>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="footer-site-info">2023 © ARAVINDAN </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+
+  </body>
+  <script> jQuery('#waterdrop').raindrops({color:'#1c1f2f', canvasHeight:150, density: 0.1, frequency: 20});
+</script>
+
+  </body>
+  </html>

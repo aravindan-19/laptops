@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Title>Laptop-Store </title>
+      <link rel="icon" href="image/asus_tuf.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <style>
+    .page-wrapper
+{
+      position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 11111;
+    top: 35px;
+}
+
+.footer-bottom {
+    padding: 15px 0;
+    border-top: 2px solid #07dc8e;
+    background-color: #e4e4e4 !important;
+    color: #180404;
+    font-family: rubik;
+}
+#waterdrop {
+    height: 30px;
+}
+
+#waterdrop canvas {
+    bottom: -60px !important;
+    background-color: aqua;
+}
+
+.footer-site-info
+{
+  padding-top: 10px;
+  font-size: larger;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+  </style>
+    </head>
+</div>
+<ul class="cards">
+    <li>
+      <a href="brand.html" class="card">
+        <img src="image/lg2.jpg" class="card__image" alt="" />
+        <div class="card__overlay">
+          <div class="card__header">                    
+            <img class="card__thumb" src="image/lg3.jpg" alt="" />
+            <div class="card__header-text">
+              <h3 class="card__title">BRAND</h3>            
+              <span class="card__status">All Brand</span>
+            </div>
+          </div>
+          <p class="card__description">See Laptops besed on Brand wise </p>
+        </div>
+      </a>      
+    </li>
+     
+  </ul>
+  <!-- Footer-->
+  <div class="page-wrapper">
+    <div id="waterdrop"></div>
+    <footer>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="footer-site-info">2023 © ARAVINDAN </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+
+  </body>
+  <script> jQuery('#waterdrop').raindrops({color:'#1c1f2f', canvasHeight:150, density: 0.1, frequency: 20});
+</script>
+
+  
+  </html>

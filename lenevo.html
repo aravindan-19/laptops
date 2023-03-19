@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Title>Lenevo-Store </title>
+      <link rel="icon" href="image/LENEVO.jpg">
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <style>
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fef8f8;
+  background:none ;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 5vw;
+  padding: 0;
+  list-style-type: none;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;  
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {      
+  width: 100%;
+  height: auto;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}       
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #f0821b;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #b05985;  
+}
+
+.card__status {
+  font-size: .8em;
+  color: #000000;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #080808;
+  font-family: "MockFlowFont";   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 0;
+  overflow: hidden;
+}  
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}  
+
+
+.page-wrapper
+{
+      position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 11111;
+    top: 35px;
+}
+
+.footer-bottom {
+    padding: 15px 0;
+    border-top: 2px solid #07dc8e;
+    background-color: #e4e4e4 !important;
+    color: #180404;
+    font-family: rubik;
+}
+#waterdrop {
+    height: 30px;
+}
+
+#waterdrop canvas {
+    bottom: -60px !important;
+    background-color: aqua;
+}
+
+.footer-site-info
+{
+  padding-top: 10px;
+  font-size: larger;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+
+
+*{padding: 0; margin: 0; box-sizing: border-box;}
+body{height: 900px;}
+header {
+	
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+}
+header .overlay{
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	color: #e91111;
+	text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient( 135deg, #f2f3ed69 10%, #33302e6b 100%);
+	
+}
+
+h1 {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 80px;
+	margin-bottom: 30px;
+}
+
+h3, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+}
+
+
+
+
+  </style></head>  
+  <body>
+    <header>
+      <div class="overlay">
+           <h1>LENEVO</h1>
+          </div>
+  </header>
+    <video id="background-video" autoplay loop muted poster="image/123.mp4">
+    <source src="image/123.mp4" type="video/mp4">
+    </video>
+   <ul class="cards">
+    <li>
+      <a href="image/len_v15.jpg" class="card">
+        <img src="image/len_v15.jpg" class="card__image" alt="" />
+        <div class="card__overlay">
+          <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+            <img class="card__thumb" src="image/LENEVO.jpg" alt="" />
+            <div class="card__header-text">
+              <h3 class="card__title">Lenovo V15 G2 Core i3 11th Gen</h3>            
+              <span class="card__status"><B>₹35,990</B></span>
+            </div>
+          </div>
+          <p class="card__description">(8 GB/1 TB HDD/256 GB SSD/Windows 11 Home) V15 ITL G2 Laptop  (15.6 Inch, Iron Grey, 1.7 kg kg)</p>
+        </div>
+      </a>      
+    </li>
+    <li>
+      <a href="image/len_ip3.jpg" class="card">
+        <img src="image/len_ip3.jpg" class="card__image" alt="" />
+        <div class="card__overlay">        
+          <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+            <img class="card__thumb" src="image/LENEVO.jpg" alt="" />
+            <div class="card__header-text">
+              <h3 class="card__title">Lenovo IdeaPad 1 Ryzen 3 Dual Core 3250U</h3>
+              <span class="card__status"><B>₹37,990</B></span>
+            </div>
+          </div>
+          <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home) 15ADA7 Thin and Light Laptop  (15.6 Inch, Cloud Grey, 1.6 Kg, With MS Office)</p>
+        </div>
+      </a>
+    </li>
+   
+    <li>
+      <a href="image/len_gam.jpg" class="card">
+        <img src="image/len_gam.jpg" class="card__image" alt="" />
+        <div class="card__overlay">
+          <div class="card__header">
+            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+            <img class="card__thumb" src="image/LENEVO.jpg" alt="" />
+            <div class="card__header-text">
+              <h3 class="card__title">Lenovo IdeaPad Gaming Core i5 11th Gen</h3>
+              <span class="card__status"><B>₹52,990</B></span>
+            </div>          
+          </div>
+          <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home/4 GB Graphics/NVIDIA GeForce GTX 1650) 82K101B6IN|82K101FTIN Gaming Laptop  (15.6 Inch, Shadow Black, 2.25 kg)</p>
+        </div>
+      </a>
+    </li>    
+    <li>
+        <a href="image/len_3.jpg" class="card">
+          <img src="image/len_3.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/LENEVO.jpg" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">Lenovo IdeaPad 3 Core i5 12th Gen</h3>
+                <span class="card__status"><B>₹59,990</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home) 15IAU7 Thin and Light Laptop  (15.6 Inch, Arctic Grey, 1.63 Kg, With MS Office)</p>
+          </div>
+        </a>
+      </li>    
+      <li>
+        <a href="image/le_lg2.jpg" class="card">
+          <img src="image/le_lg2.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/LENEVO.jpg" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">Lenovo Legion 5 Ryzen 5 Hexa Core 4600H</h3>
+                <span class="card__status"><B>₹76,900</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(8 GB/1 TB HDD/256 GB SSD/Windows 10 Home/4 GB Graphics/NVIDIA GeForce GTX 1650/120 Hz) 15ARH05 Gaming Laptop  (15.6 inch, Phantom Black, 2.3 kg)</p>
+          </div>
+        </a>
+      </li>    
+      <li>
+        <a href="image/len_lg.jpg" class="card">
+          <img src="image/len_lg.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+              <img class="card__thumb" src="image/LENEVO.jpg" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">Lenovo Legion 5 Pro Core i7 11th Gen </h3>
+                <span class="card__status"><B>₹1,96,900</B></span>
+              </div>          
+            </div>
+            <p class="card__description">(32 GB/1 TB SSD/Windows 11 Home/8 GB Graphics/NVIDIA GeForce RTX 3070) 16ITH6H Gaming Laptop  (16 Inch, Stingray (Top), Dove Grey (Bottom), 2.3 Kg, With MS Office)</p>
+          </div>
+        </a>
+      </li>    
+  </ul>
+  <!-- Footer-->
+  <div class="page-wrapper">
+    <div id="waterdrop"></div>
+    <footer>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="footer-site-info">2023 © ARAVINDAN </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+
+  </body>
+  <script> jQuery('#waterdrop').raindrops({color:'#1c1f2f', canvasHeight:150, density: 0.1, frequency: 20});
+</script>
+
+  </body>
+  </html>

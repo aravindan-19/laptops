@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Title>ASUS-Store </title>
+        <link rel="icon" href="image/ASUS.png">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --surface-color: #fff;
+            --curve: 40;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #fef8f8;
+            background: none;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 5vw;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .card {
+            position: relative;
+            display: block;
+            height: 100%;
+            border-radius: calc(var(--curve) * 1px);
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .card__image {
+            width: 100%;
+            height: auto;
+        }
+
+        .card__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            border-radius: calc(var(--curve) * 1px);
+            background-color: var(--surface-color);
+            transform: translateY(100%);
+            transition: .2s ease-in-out;
+        }
+
+        .card:hover .card__overlay {
+            transform: translateY(0);
+        }
+
+        .card__header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2em;
+            padding: 2em;
+            border-radius: calc(var(--curve) * 1px) 0 0 0;
+            background-color: var(--surface-color);
+            transform: translateY(-100%);
+            transition: .2s ease-in-out;
+        }
+
+        .card__arc {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            z-index: 1;
+        }
+
+        .card__arc path {
+            fill: var(--surface-color);
+            d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+        }
+
+        .card:hover .card__header {
+            transform: translateY(0);
+        }
+
+        .card__thumb {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .card__title {
+            font-size: 1em;
+            margin: 0 0 .3em;
+            color: #f0821b;
+        }
+
+        .card__tagline {
+            display: block;
+            margin: 1em 0;
+            font-family: "MockFlowFont";
+            font-size: .8em;
+            color: #b05985;
+        }
+
+        .card__status {
+            font-size: .8em;
+            color: #000000;
+        }
+
+        .card__description {
+            padding: 0 2em 2em;
+            margin: 0;
+            color: #080808;
+            font-family: "MockFlowFont";
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 0;
+            overflow: hidden;
+        }
+
+        #background-video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .page-wrapper
+{
+      position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 11111;
+    top: 35px;
+}
+
+.footer-bottom {
+    padding: 15px 0;
+    border-top: 2px solid #07dc8e;
+    background-color: #e4e4e4 !important;
+    color: #180404;
+    font-family: rubik;
+}
+#waterdrop {
+    height: 30px;
+}
+
+#waterdrop canvas {
+    bottom: -60px !important;
+    background-color: aqua;
+}
+
+.footer-site-info
+{
+  padding-top: 10px;
+  font-size: larger;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+*{padding: 0; margin: 0; box-sizing: border-box;}
+body{height: 900px;}
+header {
+	
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+}
+header .overlay{
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	color: #000000;
+	text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient( 135deg, #f2f3ed69 10%, #cbc5c16b 100%);
+	
+}
+
+h1 {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 80px;
+	margin-bottom: 30px;
+}
+
+h3, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="overlay">
+             <h1>ASUS</h1>
+            </div>
+    </header>
+    <video id="background-video" autoplay loop muted poster="image/123.mp4">
+        <source src="image/123.mp4" type="video/mp4">
+    </video>
+    <ul class="cards">
+        <li>
+            <a href="image/asus_i35.jpg" class="card">
+                <img src="image/asus_i35.jpg" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                            <path />
+                        </svg>
+                        <img class="card__thumb" src="image/ASUS.png" alt="" />
+                        <div class="card__header-text">
+                            <h3 class="card__title">ASUS Vivobook 15 Core i3 11th Gen</h3>
+                            <span class="card__status"><B>₹35,990</B></span>
+                        </div>
+                    </div>
+                    <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home) X515EA-EJ322WS Thin and Light Laptop  (15.6 Inch, Transparent Silver, 1.80 kg, With MS Office)</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="image/asus_tuf.png" class="card">
+                <img src="image/asus_tuf.png" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                            <path />
+                        </svg>
+                        <img class="card__thumb" src="image/ASUS.png" alt="" />
+                        <div class="card__header-text">
+                            <h3 class="card__title">ASUS TUF Gaming F15 Core i5 10th Gen </h3>
+                            <span class="card__status"><B>₹49,990</B></span>
+                        </div>
+                    </div>
+                    <p class="card__description">(8 GB/512 GB SSD/Windows 11 Home/4 GB Graphics/NVIDIA GeForce GTX 1650/144 Hz) FX506LHB-HN358W Gaming Laptop  (15.6 inch, Black Plastic, 2.30 kg kg)</p>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="image/asus_v142.jpg" class="card">
+                <img src="image/asus_v142.jpg" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                            <path />
+                        </svg>
+                        <img class="card__thumb" src="image/ASUS.png" alt="" />
+                        <div class="card__header-text">
+                            <h3 class="card__title">ASUS VivoBook 14 Pentium Silver</h3>
+                            <span class="card__status"><B>₹26,000</B></span>
+                        </div>
+                    </div>
+                    <p class="card__description">(4 GB/256 GB SSD/Windows 11 Home) X415KA-EK111WS Thin and Light Laptop  (14 Inch, Transparent Silver, 1.50 Kg, With MS Office)</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="image/ausu_pro.jpg" class="card">
+                <img src="image/ausu_pro.jpg" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                            <path />
+                        </svg>
+                        <img class="card__thumb" src="image/ASUS.png" alt="" />
+                        <div class="card__header-text">
+                            <h3 class="card__title">ASUS Vivobook Pro 15</h3>
+                            <span class="card__status"><B>₹59,990</B></span>
+                        </div>
+                    </div>
+                    <p class="card__description">Ryzen 7 Octa Core AMD R7-4800H - (16 GB/512 GB SSD/Windows 11 Home/4 GB Graphics/NVIDIA GeForce GTX 1650 Max Q) M6500IH-HN701WS Creator Laptop  (15.6 Inch, Quiet Blue, 1.80 kg, With MS Office)</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="image/asus_oled.jpg" class="card">
+                <img src="image/asus_oled.jpg" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                            <path />
+                        </svg>
+                        <img class="card__thumb" src="image/ASUS.png" alt="" />
+                        <div class="card__header-text">
+                            <h3 class="card__title">ASUS VivoBook K15 OLED </h3>
+                            <span class="card__status"><B>₹46,990</B></span>
+                        </div>
+                    </div>
+                    <p class="card__description">(2022) Ryzen 5 Hexa Core AMD R5-5500U - (8 GB/1 TB HDD/256 GB SSD/Windows 11 Home) KM513UA-L502WS Thin and Light Laptop  (15.6 inch, Indie Black, 1.80 kg, With MS Office)</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="image/asus_rog2.png" class="card">
+                <img src="image/asus_rog2.png" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                            <path />
+                        </svg>
+                        <img class="card__thumb" src="image/ASUS.png" alt="" />
+                        <div class="card__header-text">
+                            <h3 class="card__title">ASUS ROG Strix G17 </h3>
+                            <span class="card__status"><B>₹89,900</B></span>
+                        </div>
+                    </div>
+                    <p class="card__description">7.3-inch (43.94 cms) FHD 144Hz, AMD Ryzen 7 4800H, RTX 3050 Ti 4GB Graphics, Gaming Laptop (16GB/1TB SSD/Windows 11//Gray/2.4 kg), G713IE-HX040W</p>
+                </div>
+            </a>
+        </li>
+       
+
+    </ul>
+    <!-- Footer-->
+  <div class="page-wrapper">
+    <div id="waterdrop"></div>
+    <footer>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="footer-site-info">2023 © ARAVINDAN </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://daniellaharel.com/raindrops/js/raindrops.js"></script>
+
+  </body>
+  <script> jQuery('#waterdrop').raindrops({color:'#1c1f2f', canvasHeight:150, density: 0.1, frequency: 20});
+</script>
+
+</body>
+
+</html>
